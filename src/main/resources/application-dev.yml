@@ -1,0 +1,21 @@
+server:
+  port: 9080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall_pms?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+logging:
+  level:
+    cn.tedu.csmall: trace
+
+# 当前项目的自定义配置
+csmall:
+  # JWT配置
+  jwt:
+    # 生成和解析JWT的secretKey，注意：此值应该是不易被预测的，且需要保密
+    secret-key: gfd89uiKa89J043tAFrflkji9432kjfdsajm
+    # JWT的有效时长，以分钟为单位，表现用户成功登录后，登录信息的有效时长
+    duration-in-minute: 14400
