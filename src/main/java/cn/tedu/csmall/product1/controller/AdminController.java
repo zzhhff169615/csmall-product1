@@ -29,7 +29,6 @@ public class AdminController {
     @Autowired
     @Qualifier("adminServiceImpl")
     private IAdminService adminService;
-
     @ApiOperation("管理员登录")
     @ApiOperationSupport(order = 10)
     @PostMapping("/login")

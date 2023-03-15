@@ -41,14 +41,12 @@ public class AdminServiceImpl implements IAdminService {
         String jwt = Jwts.builder()
                 .setHeaderParam("alg", "HS256")
                 .setHeaderParam("typ", "JWT")
-                // Payload：数据，具体表现为Claims
                 .setClaims(claims)
                 .setExpiration(new Date(System.currentTimeMillis() + durationInMinute*60*1000))
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
         return jwt;
     }
-
     @Override
     public List<AdminListItemVO> list() {
         List<AdminListItemVO> list = new ArrayList<>();
