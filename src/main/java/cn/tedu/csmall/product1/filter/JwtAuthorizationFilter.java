@@ -40,7 +40,6 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request,response);
             return;
         }
-
         Claims claims = null;
         response.setContentType("application/json; charset=utf-8");
         try{
@@ -75,7 +74,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             log.warn("解析JWT时出现Throwable，将响应错误消息：{}", message);
             log.warn("异常类型：{}", e.getClass());
             log.warn("异常信息：{}", e.getMessage());
-            e.printStackTrace(); // 打印异常的跟踪信息，主要是为了在开发阶段更好的检查出现异常的原因
+            e.printStackTrace();
             PrintWriter writer = response.getWriter();
             JsonResult<Void> jsonResult = JsonResult.fail(ServiceCode.ERROR_UNKNOWN, message);
             String jsonString = JSON.toJSONString(jsonResult);
